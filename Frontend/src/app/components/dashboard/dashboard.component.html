@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+
+  <div class="card user-details-card mb-4">
+    <h1 class="card-title">Welcome, {{ userDetails?.name }}</h1>
+        
+    <div class="card-body d-flex align-items-center">
+      <div class="user-image mr-4">
+        <img src="image.jpeg" class="img-fluid rounded-circle" alt="User Image"/>
+      </div>
+
+      <div class="user-info">
+        <p><strong>ID:</strong> {{ userDetails?.id }}</p>
+        <p><strong>Email:</strong> {{ userDetails?.email }}</p>
+        <p><strong>Role:</strong> {{ userDetails?.role }}</p>
+        <p><strong>Date of Birth:</strong> {{ userDetails?.dob | date }}</p>
+        <p><strong>Department:</strong> {{ userDetails?.dept }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+</div>

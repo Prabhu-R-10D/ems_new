@@ -1,0 +1,65 @@
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.user-details-card {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-details-card .card-body {
+  padding: 20px;
+}
+
+.user-details-card h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.user-details-card p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+
+.navbar {
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+}
+
+.navbar-nav .nav-item .nav-link {
+  font-size: 18px;
+}
+
+.list-group-item {
+  font-size: 18px;
+  padding: 10px 15px;
+}
+
+.list-group-item a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.list-group-item a:hover {
+  text-decoration: underline;
+}
+
+.alert {
+  margin-top: 20px;
+  padding: 10px 15px;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}

@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header text-center">
+      <h2>Delete User</h2>
+    </div>
+
+    <div class="card-body">
+      <!-- User Table -->
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="table-light">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Department</th>
+              <th>DOB</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let user of users"
+              (click)="selectUser(user)"
+              [class.table-active]="selectedUser?.id === user.id"
+              style="cursor: pointer"
+            >
+              <td>{{ user.id }}</td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.dept }}</td>
+              <td>{{ user.dob | date }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Selected User Details -->
+      <div *ngIf="selectedUser" class="mt-4 border rounded p-3">
+        <h5>Selected User</h5>
+        <p><strong>ID:</strong> {{ selectedUser.id }}</p>
+        <p><strong>Name:</strong> {{ selectedUser.name }}</p>
+        <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+        <p><strong>Department:</strong> {{ selectedUser.dept }}</p>
+        <p><strong>DOB:</strong> {{ selectedUser.dob | date }}</p>
+
+        <div class="text-center mt-3">
+          <button class="btn btn-danger" (click)="onDelete()">Delete User</button>
+        </div>
+      </div>
+
+      <!-- Feedback Messages -->
+      <p class="alert alert-success mt-3" *ngIf="deleteSuccess">
+        {{ deleteSuccess }}
+      </p>
+      <p class="alert alert-danger mt-3" *ngIf="deleteError">
+        {{ deleteError }}
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+    <h2>Employee List</h2>
+    
+    <div class="d-flex justify-content-start mb-3">
+      <button class="btn btn-primary me-2 sort-btn" (click)="changeSortOrder('asc')">Ascending</button>
+      <button class="btn btn-secondary sort-btn" (click)="changeSortOrder('desc')">Descending</button>
+    </div>
+  
+    <div class="mb-3">
+      <label for="sortField">Sort By:</label>
+      <select id="sortField" class="form-select" [(ngModel)]="sortField" (change)="getEmployeeList()">
+        <option value="name">Name</option>
+        <option value="dept">Department</option>
+        <option value="id">ID</option>
+      </select>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-4" *ngFor="let employee of employees">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ employee.name }}</h5>
+            <div class="d-flex align-items-center">
+              <div class="user-image mr-4">
+                <img src="image.jpeg" class="img-fluid rounded-circle" alt="User Image" style="width: 50px; height: 50px;" />
+              </div>
+              <div class="user-info">
+                <p><strong>ID:</strong> {{ employee.id }}</p>
+                <p><strong>Email:</strong> {{ employee.email }}</p>
+                <p><strong>Department:</strong> {{ employee.dept }}</p>
+                <p><strong>Date of Birth:</strong> {{ employee.dob | date }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

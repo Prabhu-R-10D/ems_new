@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+  <h2>Employee List</h2>
+  
+  <div class="page-size-selector">
+    <label for="page-size">Items per page:</label>
+    <select id="page-size" (change)="onPageSizeChange($event)" class="form-select">
+      <option *ngFor="let size of [5, 10, 20]" [value]="size">{{ size }}</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let employee of employees">
+      <div class="card user-details-card mb-4">
+        <div class="card-body d-flex align-items-center">
+          <div class="user-image mr-4">
+            <img src="image.jpeg" class="img-fluid rounded-circle" alt="User Image" />
+          </div>
+
+          <div class="user-info">
+            <p><strong>Name:</strong>{{ employee.name }}</p>
+            <p><strong>ID:</strong> {{ employee.id }}</p>
+            <p><strong>Email:</strong> {{ employee.email }}</p>
+            <p><strong>Department:</strong> {{ employee.dept }}</p>
+            <p><strong>Date of Birth:</strong> {{ employee.dob | date }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination-controls d-flex justify-content-center mt-4">
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 0">Previous</button>
+
+    <span *ngFor="let page of [].constructor(totalPages); let i = index">
+      <button (click)="onPageChange(i)" 
+              [ngClass]="{'active': currentPage === i}" class="page-btn">
+        {{ i + 1 }}
+      </button>
+    </span>
+
+    <button (click)="onPageChange(currentPage + 1)" 
+            [disabled]="currentPage >= totalItems / pageSize - 1">Next</button>
+  </div>
+</div>
